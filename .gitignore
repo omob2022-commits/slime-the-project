@@ -1,0 +1,8 @@
+# Large AI Model Binaries (>100MB)
+MODELS/*.gguf
+MODELS/*.onnx
+MODELS/*.bin
+
+# Operating System Files
+.DS_Store
+Thumbs.db

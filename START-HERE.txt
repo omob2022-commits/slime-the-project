@@ -1,0 +1,6 @@
+Slime Kingdom Clicker - Windows portable build
+
+Double-click Slime-Kingdom-Clicker.exe to launch the game.
+This build includes the Electron desktop shell and AI companion fallback.
+For live local AI and voice, place the Qwen .gguf and Piper .onnx files in the MODELS folder beside the executable, together with platform-native runtime binaries when rebuilding.
+See DESKTOP_BUILD.md for the complete build and runtime instructions.
