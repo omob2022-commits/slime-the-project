@@ -1,48 +1,42 @@
-# Slime Kingdom Clicker - Portable Desktop Build
+# Slime Kingdom Clicker
 
-![Slime Kingdom Clicker](https://img.shields.io/badge/Platform-Windows%20Portable-blue) ![License](https://img.shields.io/badge/Status-Standalone%20Desktop-green)
+Slime Kingdom Clicker is a standalone desktop clicker game with an integrated local AI companion. The companion runs entirely offline using local LLM inference and text-to-speech synthesis, requiring no internet connection or external API keys.
 
-**Slime Kingdom Clicker** is an interactive clicker game featuring a integrated local AI companion sidecar. This repository contains the standalone portable desktop application build.
+This repository contains the portable Windows build.
 
----
+## Features
 
-## 🌟 Key Features
+- **Portable executable** — single `.exe` launch with no installation required.
+- **Local AI companion** — LLM inference via `llama-server` and voice synthesis via `piper`, running entirely on your machine.
+- **Swappable models** — drop any compatible model into the `MODELS/` folder to change the AI behaviour without rebuilding the application.
 
-- **Standalone Portable Executable**: Runs as a single portable `.exe` on Windows with embedded Electron shell and Vite frontend.
-- **Local AI Companion**: Integrated sidecar running local LLM inference (via `llama-server`) and text-to-speech voice synthesis (via `piper`).
-- **Flexible Model Loading**: Easily swap AI models by updating files in the local `MODELS/` folder without rebuilding the game application.
+## Customising the AI Model
 
----
+The game loads the first `.gguf` file it finds in the `MODELS/` directory at startup. You can replace the bundled model with any GGUF-compatible language model of your choice (Qwen, Llama, Mistral, Phi, etc.).
 
-## 🤖 Swapping & Customizing AI Models
+To swap models:
 
-You can change the AI model to **whatever GGUF model you want**!
+1. Open the `MODELS/` folder located beside `Slime-Kingdom-Clicker.exe`.
+2. Remove or rename the existing `.gguf` file.
+3. Place your preferred `.gguf` model file in the same folder.
+4. Launch the game — the new model will be loaded automatically.
 
-### How it works:
-1. Open the `MODELS/` directory located alongside `Slime-Kingdom-Clicker.exe`.
-2. Place your desired GGUF format model file (e.g., any `*.gguf` model such as Qwen2.5, Llama-3, Mistral, etc.) inside the `MODELS/` directory.
-3. The desktop application automatically detects and loads the **first `.gguf` file** found in the `MODELS/` folder upon startup.
-
-```text
+```
 Slime-Kingdom-Clicker.exe
 MODELS/
-├── your-custom-model.gguf      <-- Place any GGUF LLM model here!
-├── en_US-lessac-medium.onnx     <-- Piper TTS Voice Model (optional)
-└── en_US-lessac-medium.onnx.json
+  your-model.gguf
+  en_US-lessac-medium.onnx          (optional — Piper TTS voice)
+  en_US-lessac-medium.onnx.json
 ```
 
-> **Note**: Because GGUF models are large binary files (>1 GB), model binaries are kept separate from Git source control. Simply download or drop your preferred `.gguf` file into `MODELS/`.
+Model binaries are large and are not tracked by Git. Download your preferred model separately and place it in `MODELS/` before running the game.
 
----
+## Getting Started
 
-## 🚀 Getting Started
+1. Clone or download this repository.
+2. Place a `.gguf` model file in the `MODELS/` folder.
+3. Run `Slime-Kingdom-Clicker.exe`.
 
-1. Download or clone this repository.
-2. Ensure your model file (`.gguf`) is placed inside the `MODELS/` folder beside the executable.
-3. Double-click `Slime-Kingdom-Clicker.exe` to launch the game!
+## Build Instructions
 
----
-
-## 🛠️ Build & Architecture
-
-For detailed build instructions, developer setup, Python sidecar compilation, and cross-platform details, refer to [DESKTOP_BUILD.md](file:///home/omob/Projects/slime-kingdom-clicker-windows-portable/DESKTOP_BUILD.md).
+For full build and development details — including cross-platform packaging, sidecar compilation, and the runtime startup sequence — see [DESKTOP_BUILD.md](DESKTOP_BUILD.md).
